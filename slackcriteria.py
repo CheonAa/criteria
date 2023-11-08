@@ -3,7 +3,7 @@ import pandas as pd
 
 def get_csv_data(event):
     # github에서 csv 파일을 가져옵니다.
-    url = "https://api.github.com/repos/<username>/<repository>/contents/<file>"
+    url = "https://api.github.com/repos/CheonAa/criteria/slackcriteria.py"
     response = requests.get(url)
     if response.status_code == 200:
         data = response.content
@@ -21,6 +21,6 @@ def get_csv_data(event):
 
     # 성취기준 코드와 성취기준명을 출력합니다.
     for index, row in filtered_df.iterrows():
-        event.reply(f"{row['성취기준코드']}: {row['성취기준명']}")
+        event.reply(f"{row['성취기준 코드']}: {row['성취기준명']}")
 
 app.on("/성취기준", get_csv_data)
